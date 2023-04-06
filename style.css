@@ -1,5 +1,24 @@
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0 }
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
 .title {}
 .take-a-tour {}
 .tour-listing {}

@@ -7,9 +7,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="title">
+        <div class="header" id="myHeader">
             <h1>WSU Arboretum</h1>
         </div>
+        <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+            header.classList.remove("sticky");
+            }
+}
+</script>
+        
         <div class="take-a-tour">
             <input type=button value="Take a Tour!" onclick="window.location.href='tour.html'">
         </div>
