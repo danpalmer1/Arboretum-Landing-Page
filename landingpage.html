@@ -7,13 +7,21 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="header" id="myHeader">
+        <div class="header" id="header">
             <h1>WSU Arboretum</h1>
+            <div class="headerButtons">
+                <div class="take-a-tour" style="width:100%">
+                    <button style="width:50%" onclick="window.location.href='tour.html'">Take a Tour!</button>
+                </div>
+                <div class="tour-listing">
+                    <button style="width:50%" onclick= "window.location.href='listing.html'">Tour Listing</button>
+                </div>
+            </div>
         </div>
         <script>
         window.onscroll = function() {myFunction()};
 
-        var header = document.getElementById("myHeader");
+        var header = document.getElementById("header");
         var sticky = header.offsetTop;
 
         function myFunction() {
@@ -25,12 +33,7 @@
 }
 </script>
         
-        <div class="take-a-tour">
-            <input type=button value="Take a Tour!" onclick="window.location.href='tour.html'">
-        </div>
-        <div class="tour-listing">
-            <input type=button value="Tour Listing" onclick= "window.location.href='listing.html'">
-        </div>
+        
         <div class="search-function">
             <h2>Welcome to the Arboretum</h2><br>
             <input type="text" id="searchInput" placeholder="Search"><br>
