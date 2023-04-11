@@ -58,3 +58,6 @@ body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
 .take-a-tour {}
 .tour-listing {}
 .search-function {}
+.autocomplete {
+  position: relative;
+}
