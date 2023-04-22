@@ -11,21 +11,16 @@ body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
     color: #f1f1f1;
     text-align: center;
     z-index: 999;
+    position:fixed;
+    width:100%;
+    top: 0;
     }
 
     .content {
     padding: 16px;
     }
 
-    .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    }
-
-    .sticky + .content {
-    padding-top: 102px;
-    }
+  
 
 /* Header Buttons Styling */
     .headerButtons button {
@@ -56,7 +51,6 @@ body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
 
     /*Styles for Footer*/
       .footer{   
-      position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -74,7 +68,9 @@ body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
 .title {}
 .take-a-tour {}
 .tour-listing {}
-.search-function {}
+.search-function {
+padding-top: 130px;
+}
 .autocomplete {
   position: relative;
 }
