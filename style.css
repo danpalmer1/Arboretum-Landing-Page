@@ -51,7 +51,8 @@ body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
     }
 
     /*Styles for Footer*/
-      .footer{   
+      .footer{
+    text-align: left;   
     left: 0;
     bottom: 0;
     width: 100%;
@@ -76,4 +77,17 @@ padding-top: 130px;
 }
 .autocomplete {
   position: relative;
+  background-color: gray;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.autocomplete input[type=text]{
+  text-align: left;
+  padding: 6px;
+  margin-top: 10px;
+  margin-right: 16px;
+  font-size: 17px;
 }
