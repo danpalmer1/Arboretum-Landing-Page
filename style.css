@@ -73,7 +73,21 @@ padding-right: 30px;
 .tour-listing {}
 .search-function {
 padding-top: 130px;
+width: calc(100%-80px);
 }
 .autocomplete {
   position: relative;
+}
+input[type="text"]{
+  width: 50%;
+  height: 40px;
+  font-size: 16px;
+}
+#auto-results ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#auto-results li:hover{
+  background-color: rgb(195, 195, 195);
 }

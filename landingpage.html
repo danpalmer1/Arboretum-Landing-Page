@@ -26,14 +26,63 @@
             <h2>Welcome to the Arboretum</h2><br>
             <form autocomplete="off">
                 <div class="autocomplete">
-                    <input type="text" id="searchInput" placeholder="Search"><br>
+                    <input type="text" id="searchInput" placeholder="Search for a Tree!" onKeyUp="results(this.value)"><br>
                 </div>
-                <input type="submit">
+                <div id="auto-results" onclick="lookup(event)"></div>
             </form>
         </div>
+        <script>
+            var treeArray = [];
+            window.onload = function() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "1.xml", true);
+                xhttp.send();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                        XMLtoArray(this);
+                    }
+                };
+            }
+            function XMLtoArray(xml) {
+                var x, i, xmlDoc, txt;
+                xmlDoc = xml.responseXML;
+                txt = "";
+                x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
+                for (i = 0; i< x.length; i++) {
+                    treeArray[i] = x[i].childNodes[1].innerHTML;
+                }
+            }
 
+            
+            function autocomplete(input){
+                if (input == ""){
+                    return []; //return nothing if blank
+                }
+                var termToMatch = new RegExp(input);
+                return treeArray.filter(function(searchTerm){
+                    if(searchTerm.match(termToMatch)){  // match terms with treeArray
+                        return searchTerm;
+                    }
+                })
+            }
+            function results(inp){
+                result = document.getElementById("auto-results");
+                result.innerHTML = "";
+                let resultList = "";
+                let searchTerms = autocomplete(inp);
+                for(i = 0; i < searchTerms.length; i++){
+                    resultList += "<li>" + searchTerms[i] + "</li>";
+                }
+                result.innerHTML = "<ul>" + resultList + "</ul>";
+            }
+            function lookup(event){
+                var tree = event.target.textContent;
+                console.log(tree);
+            }
+            
+        </script>
          <div>
-Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
+<!--Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
 Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
 Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
 Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
@@ -65,7 +114,7 @@ Set the padding-bottom property of the "content" div to the height of the footer
 Add a footer element after the "content" div
 Set the position property of the footer to absolute and the bottom property to 0 to make sure that it stays at the bottom of the "content" div.
 Set the width property of the footer to 100% to make it stretch across the entire width of the viewport.
-Here's the modified code:</div>
+Here's the modified code:--></div>
     </body>
     <footer class="footer">
         <p>
