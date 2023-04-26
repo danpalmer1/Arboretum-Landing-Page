@@ -33,6 +33,11 @@
                     <input type="text" id="searchInput" placeholder="Search for a Tree!" onKeyUp="results(this.value)"><br>
                 </div>
                 <div id="auto-results" onclick="lookup(event)"></div>
+                <div id="result">
+                    <h4 id="resultName"></h4>
+                    <img id="resultImg"><br>
+                    <p id="resultDesc"></p>
+                </div>
             </form>
         </div>
         <script>
@@ -48,9 +53,8 @@
                 };
             }
             function XMLtoArray(xml) {
-                var x, i, xmlDoc, txt;
+                var x, i, xmlDoc;
                 xmlDoc = xml.responseXML;
-                txt = "";
                 x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
                 for (i = 0; i< x.length; i++) {
                     treeArray[i] = x[i].childNodes[1].innerHTML;
@@ -62,12 +66,13 @@
                 if (input == ""){
                     return []; //return nothing if blank
                 }
-                var termToMatch = new RegExp(input);
-                return treeArray.filter(function(searchTerm){
+                var termToMatch = new RegExp(input, "i");
+                var matchingTerms = treeArray.filter(function(searchTerm) {
                     if(searchTerm.match(termToMatch)){  // match terms with treeArray
-                        return searchTerm;
+                        return searchTerm.match(termToMatch);
                     }
-                })
+                });
+                return matchingTerms.slice(0, 10).sort();
             }
             function results(inp){
                 result = document.getElementById("auto-results");
@@ -81,7 +86,26 @@
             }
             function lookup(event){
                 var tree = event.target.textContent;
-                console.log(tree);
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "1.xml", true);
+                xhttp.send();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                        pullImage(this, tree);
+                    }
+                };
+            }
+            function pullImage(xml, tree){
+                var x, i, xmlDoc;
+                xmlDoc = xml.responseXML;
+                x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
+                for (i = 0; i< x.length; i++) {
+                    document.getElementById("resultImg").alt = tree;
+                    document.getElementById("resultName").innerHTML = tree;
+                    if (x[i].childNodes[1].innerHTML == tree){
+                        document.getElementById("resultImg").src = x[i].childNodes[0].innerHTML;
+                    }
+                }
             }
             
         </script>
