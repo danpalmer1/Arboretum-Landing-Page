@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
         <link rel="icon" href="/favicon.png">
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </head>
      
     <body>
@@ -41,8 +40,14 @@
             </form>
         </div>
         <script>
+
+
+
+
+
             var treeArray = [];
             window.onload = function() {
+                // carousel();
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "1.xml", true);
                 xhttp.send();
@@ -51,6 +56,7 @@
                         XMLtoArray(this);
                     }
                 };
+               
             }
             function XMLtoArray(xml) {
                 var x, i, xmlDoc;
@@ -59,6 +65,7 @@
                 for (i = 0; i< x.length; i++) {
                     treeArray[i] = x[i].childNodes[1].innerHTML;
                 }
+                showImg(xml);
             }
 
             
@@ -107,42 +114,35 @@
                     }
                 }
             }
-            
+            var slideIndex = 0;
+
+            function showImg(xml) {
+             
+
+                var xmlDoc = xml.responseXML;
+                var x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
+                var img = document.getElementById("resultImg");
+                var i = 1;
+
+                img.classList.add("image-slider");
+                img.src = x[0].childNodes[0].innerHTML;
+
+                setInterval(function() {
+                // fade out current image
+                img.style.opacity = 0;
+    
+                setTimeout(function() {
+                // set new image source and fade in
+                img.src = x[i].childNodes[0].innerHTML;
+                img.style.opacity = 1;
+                i = (i + 1) % x.length; // increment index and loop back to 0 when we reach the end
+                 }, 2000); // wait for fade out transition to complete before updating image source and fading in
+                }, 6000); // call the function every 4 seconds
+   
+}
+                       
         </script>
-         <div>
-<!-- Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
-Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
-Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
-Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
-Set the padding-bottom property of the "content" div to the height of the footer.
-Add a footer element after the "content" div.Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
-Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
-Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
-Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
-Set the padding-bottom property of the "content" div to the height of the footer.
-Add a footer element after the "content" div.Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
-Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
-Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
-Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
-Set the padding-bottom property of the "content" div to the height of the footer.
-Add a footer element after the "content" div.
-Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
-Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
-Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
-Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
-Set the padding-bottom property of the "content" div to the height of the footer.
-Add a footer element after the "content" div.
-Set the position property of the footer to absolute and the bottom property to 0 to make sure that it stays at the bottom of the "content" div.
-Set the width property of the footer to 100% to make it stretch across the entire width of the viewport.
-Here's the modified code:To get the footer to be at the bottom of the webpage, you need to modify the HTML and CSS code. Here's one way to achieve this:
-Wrap all the content inside the body tag with a div tag with a class of "content". This div will act as a container for all the content in the body.
-Set the min-height property of the "content" div to 100vh in CSS. This will make the div at least as tall as the viewport.
-Set the box-sizing property of the "content" div to border-box to make sure that any padding or borders included in the height of the element.
-Set the padding-bottom property of the "content" div to the height of the footer.
-Add a footer element after the "content" div
-Set the position property of the footer to absolute and the bottom property to 0 to make sure that it stays at the bottom of the "content" div.
-Set the width property of the footer to 100% to make it stretch across the entire width of the viewport.
-Here's the modified code:--></div>
+
     </body>
     <footer class="footer">
         <p>
