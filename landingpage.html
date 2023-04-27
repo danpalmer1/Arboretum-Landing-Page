@@ -13,7 +13,6 @@
         <div class="header" id="header">
             <!-- <h1>WSU Arboretum</h1> -->
             <i class="fas fa-clock"> </i>
-            <img src="arboretumlogo.png">
             <div class="headerButtons">
                 <div class="take-a-tour" style="width:100%">
                     <button style="width:50%" onclick="window.location.href='tour.html'">Take a Tour!</button>
@@ -26,10 +25,29 @@
        
         
         <div class="search-function">
+            <img id = "logo" src="arboretumlogo.png">
+            <img id = "wsu-logo" src="Flaming_W_Color.jpg">
+            <style>
+                #wsu-logo{
+                    position: absolute;
+                    top: 60px; /* set the top position to 100 pixels from the top of the page */
+                    left: 370px; 
+                 width: 55px; /* set the width of the image to 200 pixels */
+                height: auto; /* set the height of the image to auto, which will preserve the aspect ratio */
+                }
+
+                #logo {
+                    position: absolute;
+                    top: 70px; /* set the top position to 100 pixels from the top of the page */
+                    left: 10px; 
+                 width: 200px; /* set the width of the image to 200 pixels */
+                height: auto; /* set the height of the image to auto, which will preserve the aspect ratio */
+                }
+            </style>
             <h2>Welcome to the Arboretum</h2><br>
             <form autocomplete="off">
                 <div class="autocomplete">
-                    <input type="text" id="searchInput" placeholder="Search for a Tree!" onKeyUp="results(this.value)"><br>
+                    <input type="text" class="searchInput" id="searchInput" placeholder="Search for a Tree!" onKeyUp="results(this.value)"><br>
                 </div>
                 <div id="auto-results" onclick="lookup(event)"></div>
                 <div id="result">

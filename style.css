@@ -16,6 +16,9 @@ body {
   min-height: 100vh;
 }
 
+.logo{
+  text-align: left;
+}
 .header {
   padding: 10px 16px;
   background: #555;
@@ -40,6 +43,7 @@ body {
   transition: 2s ease-in-out;
 
 }
+
 .headerButtons button {
   background-color: #3C0680;
   border: 1px black;
