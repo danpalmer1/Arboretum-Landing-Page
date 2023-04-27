@@ -8,43 +8,30 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
         <link rel="icon" href="/favicon.png">
     </head>
-     
+<!-- begin webpage -->
     <body>
+<!-- header -->
         <div class="header" id="header">
-            <!-- <h1>WSU Arboretum</h1> -->
-            <i class="fas fa-clock"> </i>
+            <div class="img-row">
+                <a href="https://www2.winona.edu/m/">
+                    <img id="wsu-mobile" src="wsu-mobile.png">
+                </a>
+                <img id = "logo" src="arboretumlogo.png">
+                <img id = "wsu-logo" src="Flaming_W_Color.jpg">
+            </div>
             <div class="headerButtons">
-                <div class="take-a-tour" style="width:100%">
-                    <button style="width:50%" onclick="window.location.href='tour.html'">Take a Tour!</button>
+                <div>
+                    <button id="tour" style="width:50%" onclick="window.location.href='tour.html'">Take a Tour!</button>
                 </div>
-                <div class="tour-listing">
-                    <button style="width:50%" onclick= "window.location.href='listing.html'">Tour Listing</button>
+                <div>
+                    <button id="tour-listing" style="width:50%" onclick= "window.location.href='listing.html'">Tour Listing</button>
                 </div>
             </div>
         </div>
        
-        
-        <div class="search-function">
-            <img id = "logo" src="arboretumlogo.png">
-            <img id = "wsu-logo" src="Flaming_W_Color.jpg">
-            <style>
-                #wsu-logo{
-                    position: absolute;
-                    top: 60px; /* set the top position to 100 pixels from the top of the page */
-                    left: 370px; 
-                 width: 55px; /* set the width of the image to 200 pixels */
-                height: auto; /* set the height of the image to auto, which will preserve the aspect ratio */
-                }
 
-                #logo {
-                    position: absolute;
-                    top: 70px; /* set the top position to 100 pixels from the top of the page */
-                    left: 10px; 
-                 width: 200px; /* set the width of the image to 200 pixels */
-                height: auto; /* set the height of the image to auto, which will preserve the aspect ratio */
-                }
-            </style>
-            <h2>Welcome to the Arboretum</h2><br>
+<!-- search function -->
+        <div class="search-function">
             <form autocomplete="off">
                 <div class="autocomplete">
                     <input type="text" class="searchInput" id="searchInput" placeholder="Search for a Tree!" onKeyUp="results(this.value)"><br>
@@ -56,14 +43,10 @@
                     <p id="resultDesc"></p>
                 </div>
             </form>
-        </div>
+            </div>
         <script>
-
-
-
-
-
             var treeArray = [];
+
             window.onload = function() {
                 // carousel();
                 var xhttp = new XMLHttpRequest();
@@ -76,6 +59,7 @@
                 };
                
             }
+
             function XMLtoArray(xml) {
                 var x, i, xmlDoc;
                 xmlDoc = xml.responseXML;
@@ -86,7 +70,6 @@
                 showImg(xml);
             }
 
-            
             function autocomplete(input){
                 if (input == ""){
                     return []; //return nothing if blank
@@ -99,6 +82,7 @@
                 });
                 return matchingTerms.slice(0, 10).sort();
             }
+
             function results(inp){
                 result = document.getElementById("auto-results");
                 result.innerHTML = "";
@@ -109,6 +93,7 @@
                 }
                 result.innerHTML = "<ul>" + resultList + "</ul>";
             }
+
             function lookup(event){
                 var tree = event.target.textContent;
                 var xhttp = new XMLHttpRequest();
@@ -120,6 +105,7 @@
                     }
                 };
             }
+
             function pullImage(xml, tree){
                 var x, i, xmlDoc;
                 xmlDoc = xml.responseXML;
@@ -132,11 +118,10 @@
                     }
                 }
             }
+
             var slideIndex = 0;
 
             function showImg(xml) {
-             
-
                 var xmlDoc = xml.responseXML;
                 var x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
                 var img = document.getElementById("resultImg");
@@ -157,11 +142,32 @@
                  }, 2000); // wait for fade out transition to complete before updating image source and fading in
                 }, 6000); // call the function every 4 seconds
    
-}
-                       
-        </script>
+}         
 
+        </script>
+        <div class="content"> 
+The Landscape Arboretum at Winona State University <br> <br>
+Vision and Mission <br> <br>
+
+Nestled within the Mississippi River’s Driftless Region in Winona, the Island City in southeastern Minnesota’s river bluff country, is situated Winona State University. 
+Over 125 acres of campus and nearby forested bluffs constitute the newly designated Landscape Arboretum at Winona State University that has been established for the purpose 
+of supporting public enjoyment, education, recreation and scientific study. <br><br>
+
+An important educational tool for WSU’s educational mission, the Arboretum will become a “living laboratory and classroom” for student and faculty research as well as for education 
+within the region. Plant material is being labeled with both their scientific and popular names, and features a host of additional information accessible by smartphone via a QR code. 
+Additionally and importantly, the Arboretum provides an aesthetically pleasing and supportive environment for student learning at WSU. <br> <br>
+
+Presently in the planning and development stage, the campus arboretum has bold plans to become a regional arboretum featuring trees and plants native to the southeastern Minnesota region. 
+Most species of trees native to Minnesota are already available for public enjoyment and the campus is adorned with both native and commercial species of flowers and grasses in addition to 
+several memorial gardens. For decades, the WSU campus landscape has been a destination for visitors from near and far who seek to enjoy and learn more about the rich diversity of the landscape characterizing the southeastern Minnesota Mississippi River valley. <br><br>
+
+Educational tours, outreach education classes and workshops, special events and volunteer opportunities, are among the plans being developed for WSU's arboretum. <br> <br>
+
+
+        </div>
     </body>
+    
+<!-- footer -->
     <footer class="footer">
         <p>
            Contact: Nathan Anderson <br>

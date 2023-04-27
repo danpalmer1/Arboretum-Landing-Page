@@ -5,51 +5,47 @@
 html {
   height: 100%;
 }
-.mySlides{display:none}
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
-}
 
-.logo{
-  text-align: left;
-}
 .header {
-  padding: 10px 16px;
-  background: #555;
-  color: #f1f1f1;
+  background-color: white;
+  padding: 10px;
   text-align: center;
   z-index: 999;
   position: fixed;
   width: 100%;
   top: 0;
 }
-.content {
-  padding: 16px;
-  flex: 1;
-}
-.image-slider {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border: 2px solid black;
-  border-radius: 10px;
-  transition: 2s ease-in-out;
 
+.img-row {
+  display: flex;
+}
+
+#logo {
+  width: 200px;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#wsu-logo {
+  width: 40px;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#wsu-mobile {
+  width: 50px;
+  margin-left: auto;
 }
 
 .headerButtons button {
   background-color: #3C0680;
+  font-size: 20pt;
   border: 1px black;
   border-style: solid;
   color: white;
-  padding: 10px 24px;
+  padding: 15px;
   cursor: pointer;
   float: left;
 }
@@ -68,20 +64,47 @@ body {
   display: table;
 }
 
-.content {
-  padding: 16px;
-  flex: 1;
+#tour{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
-.footer {
+#tour-listing{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.mySlides{display:none}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+.logo{
   text-align: left;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #555;
-  text-align: center;
-  color: white;
-  margin-top: auto;
+}
+
+.content {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+}
+
+.image-slider {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 2s ease-in-out;
+
 }
 
 .email {
@@ -93,8 +116,12 @@ body {
 }
 
 .search-function {
-  padding-top: 130px;
+  margin-top: 150px;
   width: calc(100%-80px);
+} 
+
+#searchInput {
+  width: auto;
 }
 
 .autocomplete {
@@ -124,4 +151,19 @@ input[type="text"] {
 
 #auto-results li:hover {
   background-color: rgb(195, 195, 195);
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  margin-top: auto;
+  background-color: #555;
+}
+
+footer p {
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: left;
 }
