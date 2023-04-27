@@ -1,9 +1,11 @@
 * {
   text-align: center;
 }
+
 html {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -13,6 +15,7 @@ body {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
 }
+
 .header {
   padding: 10px 16px;
   background: #555;
@@ -23,10 +26,7 @@ body {
   width: 100%;
   top: 0;
 }
-.content {
-  padding: 16px;
-  flex: 1;
-}
+
 .headerButtons button {
   background-color: #3C0680;
   border: 1px black;
@@ -36,17 +36,26 @@ body {
   cursor: pointer;
   float: left;
 }
+
+.headerButtons button:hover {
+  background-color: #4B08A1;
+}
+
 .headerButtons button:not(:last-child) {
   border-right: none;
 }
+
 .headerButtons:after {
   content: "";
   clear: both;
   display: table;
 }
-.headerButtons button:hover {
-  background-color: #4B08A1;
+
+.content {
+  padding: 16px;
+  flex: 1;
 }
+
 .footer {
   text-align: left;
   left: 0;
@@ -57,19 +66,20 @@ body {
   color: white;
   margin-top: auto;
 }
+
 .email {
   color: white;
 }
+
 .headerButtons {
   padding-right: 30px;
 }
-.title {}
-.take-a-tour {}
-.tour-listing {}
+
 .search-function {
   padding-top: 130px;
   width: calc(100%-80px);
 }
+
 .autocomplete {
   position: relative;
   margin-left: 25%;
@@ -77,6 +87,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 input[type="text"] {
   width: 50%;
   height: 40px;
@@ -87,11 +98,13 @@ input[type="text"] {
   margin-right: 16px;
   font-size: 17px;
 }
+
 #auto-results ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
+
 #auto-results li:hover {
   background-color: rgb(195, 195, 195);
 }
