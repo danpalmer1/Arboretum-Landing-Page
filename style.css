@@ -136,6 +136,8 @@ body {
 }
 
 input[type="text"] {
+  border-color: #3C0680;
+  border-width: 2px;
   height: 40px;
   font-size: 16px;
   text-align: left;
