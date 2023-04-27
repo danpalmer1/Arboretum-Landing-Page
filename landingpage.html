@@ -47,6 +47,7 @@
 
             var treeArray = [];
             window.onload = function() {
+                // carousel();
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "1.xml", true);
                 xhttp.send();
@@ -120,7 +121,7 @@
 
                 var xmlDoc = xml.responseXML;
                 var x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
-                var img = document.getElementById("carousel");
+                var img = document.getElementById("resultImg");
                 var i = 1;
 
                 img.classList.add("image-slider");
@@ -139,8 +140,7 @@
                 }, 6000); // call the function every 4 seconds
    
 }
-                
-        
+                       
         </script>
 
     </body>
