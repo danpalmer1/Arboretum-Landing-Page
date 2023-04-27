@@ -46,7 +46,7 @@
             </div>
         <script>
             var treeArray = [];
-
+            var tree = "";
             window.onload = function() {
                 // carousel();
                 var xhttp = new XMLHttpRequest();
@@ -95,7 +95,7 @@
             }
 
             function lookup(event){
-                var tree = event.target.textContent;
+                tree = event.target.textContent;
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "1.xml", true);
                 xhttp.send();
@@ -106,7 +106,7 @@
                 };
             }
 
-            function pullImage(xml, tree){
+            function pullImage(xml){
                 var x, i, xmlDoc;
                 xmlDoc = xml.responseXML;
                 x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
@@ -130,20 +130,22 @@
                 img.classList.add("image-slider");
                 img.src = x[0].childNodes[0].innerHTML;
 
-                setInterval(function() {
-                // fade out current image
-                img.style.opacity = 0;
+                interval = setInterval(function() {
+                    if (tree != ""){
+                        clearInterval(interval);
+                        return;
+                    }
+                    // fade out current image
+                    img.style.opacity = 0;
     
-                setTimeout(function() {
-                // set new image source and fade in
-                img.src = x[i].childNodes[0].innerHTML;
-                img.style.opacity = 1;
-                i = (i + 1) % x.length; // increment index and loop back to 0 when we reach the end
-                 }, 2000); // wait for fade out transition to complete before updating image source and fading in
+                    setTimeout(function() {
+                    // set new image source and fade in
+                    img.src = x[i].childNodes[0].innerHTML;
+                    img.style.opacity = 1;
+                    i = (i + 1) % x.length; // increment index and loop back to 0 when we reach the end
+                    }, 2000); // wait for fade out transition to complete before updating image source and fading in
                 }, 6000); // call the function every 4 seconds
-   
-}         
-
+            }
         </script>
         <div class="content"> 
 The Landscape Arboretum at Winona State University <br> <br>
