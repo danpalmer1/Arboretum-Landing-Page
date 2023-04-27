@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
         <link rel="icon" href="/favicon.png">
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </head>
      
     <body>
@@ -52,6 +51,7 @@
                         XMLtoArray(this);
                     }
                 };
+               
             }
             function XMLtoArray(xml) {
                 var x, i, xmlDoc;
@@ -60,6 +60,7 @@
                 for (i = 0; i< x.length; i++) {
                     treeArray[i] = x[i].childNodes[1].innerHTML;
                 }
+                showImg(xml);
             }
 
             
@@ -110,26 +111,23 @@
             }
             var slideIndex = 0;
 
-            function carousel() {
-                var i;
-                // var x = document.getElementsByClassName("mySlides");
-                //instead of get image from here get from xml doc?
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                 }
-                slideIndex++;
-                if (slideIndex > x.length) {slideIndex = 1}
-                x[slideIndex-1].style.display = "block";
-                setTimeout(carousel, 2000); // Change image every 2 seconds
+            function showImg(xml) {
+             
 
-                }
+                var xmlDoc = xml.responseXML;
+                var x = xmlDoc.getElementsByTagName("ThemeEntityAbridgedData");
+                var img = document.getElementById("resultImg");
+                var i = 0;
+  
+                setInterval(function() {
+                img.src = x[i].childNodes[0].innerHTML;
+                 i = (i + 1) % x.length; // increment index and loop back to 0 when we reach the end
+                }, 4000); // call the function every 4 seconds
+
+            }
         
         </script>
-    <div class="w3-content w3-section" style="max-width:500px">
-        <img class="mySlides" src="favicon.png" style="width:100%">
-        <img class="mySlides" src="arboretumlogo.png" style="width:100%">
-        <img class="mySlides" src="img_chicago.jpg" style="width:100%">
-      </div>
+
     </body>
     <footer class="footer">
         <p>
